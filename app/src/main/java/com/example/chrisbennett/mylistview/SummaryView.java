@@ -22,19 +22,13 @@ public class SummaryView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_view);
 
-
+        int x=42;
+        x = x*2;
         mDbHelper = new ReviewDBHelper(this);
         db = mDbHelper.getReadableDatabase();
 
         Cursor c = db.rawQuery("SELECT * FROM "  + ReviewSchema.Review.TABLE_NAME,null);
         ReviewCursorAdapter adapter = new ReviewCursorAdapter(this,c);
-        /*
-        ArrayList <String> records = new ArrayList<String>();
-        for(int i=0;i<Data.names.length;i++) {
-            records.add(Data.names[i] + "," + Data.ages[i] + "," + Data.secrets[i]);
-        }
-        ItemAdapter adapter = new ItemAdapter(this,records);
-*/
 
         ListView listview = (ListView) findViewById(R.id.listView);
 
